@@ -131,6 +131,7 @@ mkdir "$tmppath"
 # sets variable used to check whether a new album is going to be scanned
 novoAlbum=0
 
+# Album loop
 while [ "$novoAlbum" == 0 ]; do
 	# asks the user to enter the album name and location
 	szSavePath=$(zenity --file-selection \
@@ -146,6 +147,8 @@ while [ "$novoAlbum" == 0 ]; do
 		--text="Digite um número par de 2 a 998 caso deseje continuar um álbum já iniciado")
 	# if a number >= 2 is entered, the scan count variable is calculated from it
 	if [ "0$c" -ge "0" ]; then let c/=2; else c=0; fi
+	
+	# Scan loop
 	while [ "$newScan" == 0 ]; do
 		# if the scanned file exists and is not empty
 		if [ -s "$f" ]; then
